@@ -9,8 +9,8 @@ const Counter = () => {
     const [counter, setCount] = useState<number>(0);
     const [user, setUser] = useState<User | null>(null);
 
-    const handleIncrease = (): void => {
-        setCount(counter + 1);
+    const handleIncrease = (event: number): void => {
+        setCount(counter + event);
     };
 
     const handleUserSubmit = (e: FormEvent<HTMLFormElement>) => {
@@ -31,8 +31,9 @@ const Counter = () => {
         <div>
             <h1>This is Counter.</h1>
             <h2>{counter}</h2>
-            <button onClick={handleIncrease}>Increase</button>
-            <button>Decrease</button>
+            <button onClick={() => handleIncrease(+1)}>Increase</button>
+            <button onClick={() => handleIncrease(-1)} >Decrease</button>
+            <h1>----------</h1>
         </div>
     );
 };
